@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orçamento Mensal — FinCalc</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="orcamento">
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">Fin<span>Calc</span></a>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="calculadora.html">Juros</a>
+        <a href="parcelamento.html">Parcelamento</a>
+        <a href="salario.html">Salário</a>
+        <a href="orcamento.html">Orçamento</a>
+        <a href="metas.html">Metas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">Orçamento Mensal</h1>
+      <p class="page-subtitle">Registre o que entra e o que sai. Os dados ficam salvos no seu navegador.</p>
+
+      <div class="grid-2">
+        <div>
+          <form id="form-orcamento" class="card">
+            <h2>Novo lançamento</h2>
+            <div class="form-group">
+              <label for="descricao">Descrição</label>
+              <input type="text" id="descricao" placeholder="Ex.: Aluguel" maxlength="60" required>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <label for="valor">Valor (R$)</label>
+                <input type="number" id="valor" min="0" step="0.01" required>
+              </div>
+              <div class="form-group">
+                <label for="tipo">Tipo</label>
+                <select id="tipo">
+                  <option value="despesa">Despesa</option>
+                  <option value="receita">Receita</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group" id="grupo-categoria">
+              <label for="categoria">Categoria</label>
+              <select id="categoria">
+                <option>Necessidades</option>
+                <option>Desejos</option>
+                <option>Poupança/Investimento</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-block">Adicionar</button>
+          </form>
+
+          <div class="card" style="margin-top:20px">
+            <h2>Regra 50/30/20</h2>
+            <div id="regra-503020"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Resumo</h2>
+          <div class="result-highlight">
+            <div class="label">Saldo do mês</div>
+            <div class="value" id="saldo"></div>
+          </div>
+          <ul class="result-list">
+            <li><span class="muted">Receitas</span><strong id="total-receitas" class="positive"></strong></li>
+            <li><span class="muted">Despesas</span><strong id="total-despesas" class="negative"></strong></li>
+          </ul>
+
+          <h2 style="margin-top:24px">Receitas</h2>
+          <ul class="item-list" id="lista-receitas"></ul>
+
+          <h2 style="margin-top:24px">Despesas</h2>
+          <ul class="item-list" id="lista-despesas"></ul>
+
+          <button type="button" id="limpar" class="btn btn-small" style="margin-top:16px">Limpar tudo</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="ano"></span> FinCalc · Resultados apenas para simulação.</div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

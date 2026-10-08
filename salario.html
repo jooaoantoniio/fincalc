@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salário Líquido — FinCalc</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="salario">
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">Fin<span>Calc</span></a>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="calculadora.html">Juros</a>
+        <a href="parcelamento.html">Parcelamento</a>
+        <a href="salario.html">Salário</a>
+        <a href="orcamento.html">Orçamento</a>
+        <a href="metas.html">Metas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">Calculadora de Salário Líquido</h1>
+      <p class="page-subtitle">Descontos de INSS e IRRF para trabalhadores CLT.</p>
+
+      <div class="grid-2">
+        <form id="form-salario" class="card">
+          <h2>Seus dados</h2>
+          <div class="form-group">
+            <label for="bruto">Salário bruto (R$)</label>
+            <input type="number" id="bruto" min="0" step="0.01" value="4500" required>
+          </div>
+          <div class="row">
+            <div class="form-group">
+              <label for="dependentes">Dependentes</label>
+              <input type="number" id="dependentes" min="0" step="1" value="0">
+            </div>
+            <div class="form-group">
+              <label for="pensao">Pensão alimentícia (R$)</label>
+              <input type="number" id="pensao" min="0" step="0.01" value="0">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="outros">Outros descontos (R$)</label>
+            <input type="number" id="outros" min="0" step="0.01" value="0">
+          </div>
+          <button type="submit" class="btn btn-block">Calcular</button>
+        </form>
+
+        <div id="resultado" class="card result">
+          <h2>Resultado</h2>
+          <div class="result-highlight">
+            <div class="label">Salário líquido</div>
+            <div class="value" id="res-liquido"></div>
+          </div>
+          <ul class="result-list">
+            <li><span class="muted">Salário bruto</span><strong id="res-bruto"></strong></li>
+            <li>
+              <span class="muted">INSS <small id="res-inss-aliq"></small></span>
+              <strong id="res-inss" class="negative"></strong>
+            </li>
+            <li>
+              <span class="muted">IRRF <small id="res-irrf-aliq"></small></span>
+              <strong id="res-irrf" class="negative"></strong>
+            </li>
+            <li><span class="muted">Pensão alimentícia</span><strong id="res-pensao" class="negative"></strong></li>
+            <li><span class="muted">Outros descontos</span><strong id="res-outros" class="negative"></strong></li>
+            <li><span class="muted">Base de cálculo do IR</span><strong id="res-base"></strong></li>
+          </ul>
+          <p class="note">Tabelas de 2026, incluindo a isenção de IR para rendas até R$ 5.000 (Lei 15.270/2025). Confira os valores oficiais.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="ano"></span> FinCalc · Resultados apenas para simulação.</div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
